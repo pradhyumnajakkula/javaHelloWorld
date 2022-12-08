@@ -1,5 +1,6 @@
 package javaProject;
 import java.util.*;
+import com.newpackage.CalcNew;
 
 
 public class Arithmetic {
@@ -10,35 +11,14 @@ public class Arithmetic {
 		int a = sc.nextInt();
 		System.out.println("Enter second integer ");
 		int b = sc.nextInt();
-		Arithmetic cal= new Arithmetic();
-		cal.add(a,b);
-		sub(a,b);
+		Calc cal= new Calc();//Object creation for class(inside main)
 		
+		cal.add(a,b);// method is not static so objname.methodname same package diff class
+		Calc.sub(a,b);//Static method -->class.methodname same package diff class
+		
+		CalcNew calc =new CalcNew();// object creation for CalcNew class in different package
+		calc.add(a,b);
+		CalcNew.sub(a, b);
 	}
 	
-	//Method for Addition
-	public void add(int a, int b){
-		int result= a+b;
-		System.out.println("The sum of given two numbers is" +result);
-
 	}
-	//Method for Subtraction
-	public static void sub(int a, int b) {
-		int result=a-b;
-		System.out.println("The subtraction of given two numbers is" +result);
-		
-	}
-	//Method for Multiplication
-	public void mul(int a, int b) {
-		int result= a*b;
-		System.out.println("The multiplication of given numbers is " +result);
-	
-	}
-	//Method for division
-	public void div(int a, int b) {
-			int result= a/b;
-			System.out.println("The division of given numbers is " +result);
-		
-		
-	}
-}
